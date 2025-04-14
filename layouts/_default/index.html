@@ -44,7 +44,7 @@
         {{ partial "cover.html" . }}
 
         <div class="post-content">
-          {{ if .Params.showFullContent }}
+          {{ if $.Site.Params.showFullContent }}
             {{ .Content }}
           {{ else if .Description }}
             <p>{{ .Description | markdownify }}</p>
@@ -52,13 +52,12 @@
             {{ .Summary }}
           {{ end }}
         </div>
-
-        {{ if not .Params.showFullContent }}
+        
+        {{ if not $.Site.Params.showFullContent }}
           <div>
             <a class="read-more button inline" href="{{ .RelPermalink }}">[{{ $.Site.Params.ReadMore }}]</a>
           </div>
-        {{ end }}
-      </article>
+        {{ end }}      </article>
     {{ end }}
 
     {{ partial "pagination.html" . }}
